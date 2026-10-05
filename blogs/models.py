@@ -49,6 +49,7 @@ class Blog(models.Model):
      # Connects the blog with a Category
      # on_delete=models.CASCADE means if a category is deleted,
      # its related blogs will also be deleted
+    #  Django detects this category as category_id so we can use both category and category_id in usage
      category = models.ForeignKey(Category,on_delete=models.CASCADE)
      # Connects the blog with the Django User
      # This stores which user created the blog
