@@ -26,7 +26,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.home,name='home'),
     path('category/',include('blogs.urls')), # Includes the URL patterns from the blogs app under the 'category/' URL path
-    path('<slug:blog_slug>',blogviews.blogs,name='blogs'),
+    path('blogs/<slug:blog_slug>',blogviews.blogs,name='blogs'),
     #search endpoint
-    path('blogs/search/',blogviews.search,name='search')
+    path('blogs/search/',blogviews.search,name='search'),
+    path('register/',views.register,name='register'),
+    path('login/',views.login,name='login'),
+    path('logout/',views.logout,name='logout'),
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
