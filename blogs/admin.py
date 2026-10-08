@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from blogs.models import Category,Blog
+from blogs.models import Category,Blog,About, SocialLink
 
 
 # This class is used to customize the Blog model in the Django admin panel
@@ -21,6 +21,17 @@ class BlogAdmin(admin.ModelAdmin):
     list_editable = ('is_featured',)
     # Registers the Category model in the Django admin panel
     admin.site.register(Category)
+    
+
+class AboutAdmin(admin.ModelAdmin):
+    def has_add_permission(self, request):
+        count = About.objects.all().count()
+        if count ==0:
+            return True
+        return False
+admin.site.register(About,AboutAdmin)
+
+admin.site.register(SocialLink)
 
 # Registers the Blog model in the Django admin panel
 # BlogAdmin is used to apply the custom admin settings
