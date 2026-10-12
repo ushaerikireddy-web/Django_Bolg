@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from blogs.models import Category,Blog,About, SocialLink
+from blogs.models import Category,Blog,About, SocialLink,Comment
 
 
 # This class is used to customize the Blog model in the Django admin panel
@@ -36,3 +36,4 @@ admin.site.register(SocialLink)
 # Registers the Blog model in the Django admin panel
 # BlogAdmin is used to apply the custom admin settings
 admin.site.register(Blog,BlogAdmin)
+admin.site.register(Comment)
